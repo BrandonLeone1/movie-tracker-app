@@ -160,6 +160,10 @@ async function fetchMovies() {
   let response = await fetch(stringToFetch);
 
   let data = await response.json();
+
+  if(data.Search == null || data.Search == undefined || data.Search == []) {
+    setIsError(true)
+  }
   
   let moviesArray = data.Search;
 

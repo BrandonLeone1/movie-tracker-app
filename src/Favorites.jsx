@@ -66,10 +66,10 @@ const [draggedID, setDraggedID] = useState(null);
                     {
                         favoritesList.filter(favorite => favorite.status === "want")
                         .map(favorite => (
-                            <div key={favorite.imdbID} draggable onDragStart={() => setDraggedID(favorite.imdbID)} className="flex flex-col gap-3">
-                                <h2 className="text-white text-center text-xl">{favorite.Title}</h2>
+                            <div key={favorite.imdbID} draggable onDragStart={() => setDraggedID(favorite.imdbID)} className="flex flex-col gap-3 min-w-0">
+                                <h2 className="text-white text-center text-xl truncate">{favorite.Title}</h2>
                                 <Link to={`/favorites/movie/${favorite.imdbID}`}>
-                                <img src={favorite.Poster} onClick={() => detailMethod(favorite)} className="block mx-auto rounded-2xl"/>
+                                <img src={favorite.Poster} onClick={() => detailMethod(favorite)} className="h-80 w-[90%] object-cover rounded-2xl block m-auto"/>
                                 </Link>
 
                                 <button onClick={() => handleClick(favorite)} className="text-md min-h-8 bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300 block mx-auto">Remove</button>
@@ -94,10 +94,10 @@ const [draggedID, setDraggedID] = useState(null);
                     {
                         favoritesList.filter(favoriteM => favoriteM.status === "watched")
                         .map(favoriteM => (
-                            <div key={favoriteM.imdbID} draggable onDragStart={() => setDraggedID(favoriteM.imdbID)} className="flex flex-col gap-3">
-                                <h2 className="text-white text-center text-xl">{favoriteM.Title}</h2>
+                            <div key={favoriteM.imdbID} draggable onDragStart={() => setDraggedID(favoriteM.imdbID)} className="flex flex-col gap-3 min-w-0">
+                                <h2 className="text-white text-center text-xl truncate">{favoriteM.Title}</h2>
                                 <Link to={`/favorites/movie/${favoriteM.imdbID}`}>
-                                <img src={favoriteM.Poster} onClick={() => detailMethod(favoriteM)} className="block mx-auto rounded-2xl"/>
+                                <img src={favoriteM.Poster} onClick={() => detailMethod(favoriteM)} className="h-80 w-[90%] object-cover rounded-2xl block m-auto"/>
                                 </Link>
 
                                 <button onClick={() => handleClick(favoriteM)} className="text-md min-h-8 bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300 block mx-auto">Remove</button>

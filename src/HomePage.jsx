@@ -43,7 +43,7 @@ export function HomePage({trendingMovies}){
                 <button className="text-red-600 text-3xl cursor-pointer" onClick={scrollLeft}>{`<`}</button>
                 <button className="text-red-600 text-3xl cursor-pointer" onClick={scrollRight}>{`>`}</button>
             </div>
-            <div ref={carousel} className="trending-movies-container w-300 max-w-[90%] mx-auto my-10 flex overflow-x-hidden scroll-smooth space-x-4 p-4">
+            <div ref={carousel} className="trending-movies-container w-300 max-w-[90%] mx-auto my-10 flex overflow-x-scroll scroll-smooth space-x-4 p-4">
                 
                 {
                     trendingMovies.map((movie) => (
@@ -62,8 +62,8 @@ export function HomePage({trendingMovies}){
 
             {selectedTrending && (
 
-                <div onClick={() => setSelectedTrending(null)} className={`grid justify-center fixed inset-0 z-50 p-4`}>
-                    <div className={`grid grid-cols-1 place-items-center px-8 py-16 bg-slate-800 w-full max-w-md md:max-w-lg lg:max-w-xl rounded-2xl relative overflow-y-auto shadow-2xl max-h-[50vh] my-[50%] animate-[fadeIn_0.3s_ease-out]`} onClick={(e) => e.stopPropagation()}>
+                <div onClick={() => setSelectedTrending(null)} className={`fixed inset-0 z-50 p-4 flex items-center justify-center bg-black/50`}>
+                    <div className={`grid grid-cols-1 place-items-center px-8 py-16 bg-slate-800 w-full max-w-md md:max-w-lg lg:max-w-xl rounded-2xl relative overflow-y-auto shadow-2xl max-h-[90vh] animate-[fadeIn_0.3s_ease-out]`} onClick={(e) => e.stopPropagation()}>
                         <h2 className="text-white">{selectedTrending.title}</h2>
                         <p className="text-white">{selectedTrending.number}</p>
                         <p className="text-white">Donec eu nulla rutrum, condimentum leo in, cursus erat. Duis id mi quis arcu elementum eleifend. Duis pulvinar lacinia augue, non dictum enim.</p>
