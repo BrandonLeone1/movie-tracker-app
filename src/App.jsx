@@ -16,6 +16,7 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
 
 const [user, setUser] = useState(null);
+const apiKey = import.meta.env.VITE_OMDB_API_KEY;
 
 useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -138,7 +139,7 @@ async function fetchMovies() {
   setIsError(false);
   setIsLoading(true);
 
-  let stringToFetch = `http://www.omdbapi.com/?s=${encodeURIComponent(userQuery)}&apikey=1dd8fbef`;
+  let stringToFetch = `http://www.omdbapi.com/?s=${encodeURIComponent(userQuery)}&apikey=${apiKey}`;
 
   let response = await fetch(stringToFetch);
 
@@ -163,7 +164,7 @@ async function fetchMovies() {
 async function fetchSpecificDetails(){
 
   try {
-  let stringToFetch2 = `http://www.omdbapi.com/?i=${encodeURIComponent(detailedView.imdbID)}&apikey=1dd8fbef`;
+  let stringToFetch2 = `http://www.omdbapi.com/?i=${encodeURIComponent(detailedView.imdbID)}&apikey=${apiKey}`;
 
   let response2 = await fetch(stringToFetch2);
 
