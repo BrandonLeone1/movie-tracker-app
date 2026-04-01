@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router";
 
 export function HomePage({trendingMovies}){
@@ -25,6 +24,7 @@ export function HomePage({trendingMovies}){
         <div>
 
             <div className="hero-section-container h-screen px-8 text-center flex flex-col place-items-center justify-center gap-16  bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.05),transparent_40%),linear-gradient(to_bottom,#0f0f0f,#000)] text-white">
+                
                 <h1 className="text-xl font-bold text-center sm:text-xl md:text-2xl lg:text-3xl font-[montserrat]">Search major movies, add to favorites, and sort by watched or not!</h1>
                 <p className="text-base sm:text-lg md:text-xl lg:text-xl">Don't end up forgetting to watch that movie you said you would.</p>
                 <p className="text-base sm:text-lg md:text-lg lg:text-lg">Ready to get started?</p>
@@ -32,15 +32,21 @@ export function HomePage({trendingMovies}){
                 <Link to="/search">
                 <button className="text-base sm:text-xl md:text-2xl lg:text-3xl min-h-16 bg-red-600 px-8 text-white py-1 font-bold rounded-xl cursor-pointer hover:bg-red-700 transition-all duration-300 after:content-['>'] after:ml-2">Search Now!</button>
                 </Link>
+            
             </div>
 
             <div className="flex w-300 max-w-[90%] m-auto text-xl sm:text-xl md:text-2xl lg:text-3xl font-bold">
+            
                 <h2 className="text-white">Trending Movies</h2>
+            
             </div>
             <div className="flex gap-16 justify-center">
+            
                 <button className="text-red-600 text-3xl cursor-pointer" onClick={scrollLeft}>{`<`}</button>
                 <button className="text-red-600 text-3xl cursor-pointer" onClick={scrollRight}>{`>`}</button>
+            
             </div>
+            
             <div ref={carousel} className="trending-movies-container w-300 max-w-[90%] mx-auto my-10 flex overflow-x-scroll md:overflow-x-hidden scroll-smooth space-x-4 p-4">
                 
                 {
@@ -55,10 +61,10 @@ export function HomePage({trendingMovies}){
                 
                 )
                 }
+            
             </div>
 
             {selectedTrending && (
-
                 <div onClick={() => setSelectedTrending(null)} className={`fixed inset-0 z-50 p-4 flex items-center justify-center bg-black/50`}>
                     <div className={`grid grid-cols-1 place-items-center px-8 py-16 bg-slate-800 w-full max-w-md md:max-w-lg lg:max-w-xl rounded-2xl relative overflow-y-auto gap-3 shadow-2xl max-h-[90vh] animate-[fadeIn_0.3s_ease-out]`} onClick={(e) => e.stopPropagation()}>
                         
@@ -70,10 +76,10 @@ export function HomePage({trendingMovies}){
                     </div>
                 </div>
             )
-
             }
 
             <h2>More benefits</h2>
+            
             <div className="reasons-to-join-container grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 my-20 gap-12 w-300 max-w-[90%] m-auto">
 
                 <div className="reason flex flex-col gap-8 px-8 bg-linear-to-b from-gray-900 via-[#141422] rounded-2xl py-8 min-w-72.5 text-white">

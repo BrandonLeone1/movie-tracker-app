@@ -15,7 +15,6 @@ export function Navbar({signedInOrNot, setMethod}) {
 
             <nav className="flex items-center justify-between px-10 py-6 w-300 max-w-[95%] m-auto font-[montserrat]">
                 
-                
                 <div className="">
                     <Link to="/">
                     <h2 className="text-2xl md:text-2xl lg:text-2xl text-red-600 font-semibold" onClick={() => setIsOpen(false)}>Movie Tracker</h2>
@@ -35,6 +34,7 @@ export function Navbar({signedInOrNot, setMethod}) {
                         <Link to="/favorites">
                         <button className="text-sm min-h-8 bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300">Favorites</button>
                         </Link>
+
                         { signedInOrNot ? (
                             <div>
                                 <button onClick={() => signOut(auth)} className="text-sm min-h-8 bg-red-900 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300">Sign Out</button>
@@ -48,7 +48,6 @@ export function Navbar({signedInOrNot, setMethod}) {
 
             { isOpen && (
                 <div className="flex flex-col lg:hidden gap-6 w-300 m-auto max-w-[95%] px-10 animate-[fadeIn_0.3s_ease-out] pb-6">
-                        
                         
                         <Link to="/search">
                         <button className="text-sm min-h-8 lg:hidden bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300" onClick={() => setIsOpen(false)}>Search</button>

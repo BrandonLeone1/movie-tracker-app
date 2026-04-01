@@ -6,8 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { RenderMovies } from './components/RenderMovies';
 import { Loading } from './components/Loading';
 import { Error } from './pages/Error';
-import { auth } from './services/Firebase';
-import { db } from './services/Firebase';
+import { auth, db } from './services/Firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import {doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove} from "firebase/firestore"
 import { useEffect, useState } from 'react'
@@ -115,7 +114,7 @@ fetchSpecificDetails();
 useEffect(() => {
 
   async function loadFavorites() {
-    if (!user) return;
+    if (!user) {return};
 
     const userRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(userRef);

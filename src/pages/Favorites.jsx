@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router";
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 import {doc, updateDoc} from "firebase/firestore"
 import { db } from "../services/Firebase";
 
@@ -23,7 +22,6 @@ export function Favorites({favoritesList, detailMethod, removeMethod, updateMeth
     }
 
 const [draggedID, setDraggedID] = useState(null);
-
 
     function handleClick(favoriteToRemove){
         removeMethod(favoriteToRemove);
@@ -55,8 +53,6 @@ async function handleDrop(status) {
         <div className="w-300 max-w-[90%] mx-auto">
             <>
             <h2 className="text-white text-2xl md:text-2xl sm:text-2xl lg:text-3xl font-bold font-mono my-16">Favorites</h2>
-            
-            
             
             <div className="grid grid-cols-2 gap-16">
           
