@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Outlet } from "react-router";
 import { Link } from "react-router";
 import {doc, updateDoc} from "firebase/firestore"
-import { db } from "./Firebase";
+import { db } from "../services/Firebase";
 
 export function Favorites({favoritesList, detailMethod, removeMethod, updateMethod, isSignedIn}) {
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Signup } from "./Signup";
 import { signOut } from "firebase/auth";
-import { auth } from "./Firebase";
+import { auth } from "../services/Firebase";
 
 export function Navbar({signedInOrNot, setMethod}) {
 

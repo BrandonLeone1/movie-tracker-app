@@ -1,5 +1,5 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "./Firebase";
+import { auth } from "../services/Firebase";
 
 export function Signup({userToSet}) {
 

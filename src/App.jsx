@@ -1,17 +1,17 @@
-import { use, useEffect, useState } from 'react'
-import { Navbar } from './Navbar';
-import { SearchMovies } from './SearchMovies';
-import { Route, Routes } from 'react-router-dom';
-import { Favorites } from './Favorites';
-import { DetailedView } from './DetailedMovie';
-import { HomePage } from './HomePage';
-import { RenderMovies } from './RenderMovies';
-import { Loading } from './Loading';
-import { Error } from './Error';
-import { auth } from './Firebase';
-import { db } from './Firebase';
+import { Navbar } from './components/Navbar';
+import { SearchMovies } from './pages/SearchMovies';
+import { Favorites } from './pages/Favorites';
+import { DetailedView } from './pages/DetailedMovie';
+import { HomePage } from './pages/HomePage';
+import { RenderMovies } from './components/RenderMovies';
+import { Loading } from './components/Loading';
+import { Error } from './pages/Error';
+import { auth } from './services/Firebase';
+import { db } from './services/Firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import {doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove} from "firebase/firestore"
+import { useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
