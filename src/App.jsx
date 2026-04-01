@@ -138,7 +138,7 @@ async function fetchMovies() {
   setIsError(false);
   setIsLoading(true);
 
-  let stringToFetch = `http://www.omdbapi.com/?s=${encodeURIComponent(userQuery)}&apikey=${apiKey}`;
+  let stringToFetch = `https://www.omdbapi.com/?s=${encodeURIComponent(userQuery)}&apikey=${apiKey}`;
 
   let response = await fetch(stringToFetch);
 
@@ -163,7 +163,7 @@ async function fetchMovies() {
 async function fetchSpecificDetails(){
 
   try {
-  let stringToFetch2 = `http://www.omdbapi.com/?i=${encodeURIComponent(detailedView.imdbID)}&apikey=${apiKey}`;
+  let stringToFetch2 = `https://www.omdbapi.com/?i=${encodeURIComponent(detailedView.imdbID)}&apikey=${apiKey}`;
 
   let response2 = await fetch(stringToFetch2);
 
