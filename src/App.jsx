@@ -8,13 +8,10 @@ import { HomePage } from './HomePage';
 import { RenderMovies } from './RenderMovies';
 import { Loading } from './Loading';
 import { Error } from './Error';
-import { Signup } from './Signup';
 import { auth } from './Firebase';
 import { db } from './Firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import {doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove} from "firebase/firestore"
-
-
 
 function App() {
 
@@ -46,73 +43,61 @@ const trendingMovies = [
     title: "Lorem ipsum dolor sit",
     number: 1,
     poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Science teacher Ryland Grace (Ryan Gosling) wakes up on a spaceship light years from home with no recollection of who he is or how he... "
-
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 2,
     poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Birmingham, 1940. Amidst the chaos of WWII, Tommy Shelby is driven back from a self-imposed exile to face his most destructive reckoning yet. With the..."
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 3,
     poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Moments after surviving an all-out attack from the Le Domas family, Grace (Samara Weaving) discovers she’s reached the next level of the nightmarish game..."
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 4,
     poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Bob is a washed-up revolutionary who lives in a state of stoned paranoia, surviving off-grid with his spirited and self-reliant daughter, Willa. When his evil..."
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 5,
-    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Moments after surviving an all-out attack from the Le Domas family, Grace (Samara Weaving) discovers she’s reached the next level of the nightmarish game..."
+    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279"
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 6,
-    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Moments after surviving an all-out attack from the Le Domas family, Grace (Samara Weaving) discovers she’s reached the next level of the nightmarish game..."
+    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279"
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 7,
-    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Moments after surviving an all-out attack from the Le Domas family, Grace (Samara Weaving) discovers she’s reached the next level of the nightmarish game..."
+    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279"
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 8,
-    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Moments after surviving an all-out attack from the Le Domas family, Grace (Samara Weaving) discovers she’s reached the next level of the nightmarish game..."
+    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279"
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 9,
-    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Moments after surviving an all-out attack from the Le Domas family, Grace (Samara Weaving) discovers she’s reached the next level of the nightmarish game..."
+    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279"
   },
   {
     title: "Lorem ipsum dolor sit",
     number: 10,
-    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279",
-    details: "Moments after surviving an all-out attack from the Le Domas family, Grace (Samara Weaving) discovers she’s reached the next level of the nightmarish game..."
+    poster: "https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279"
   }
 ];
 
 useEffect(() => {
 
-    if(userQuery == undefined) {return}
+    if(!userQuery) {return}
 
     fetchMovies();
 
 }, [userQuery]
-
 
 )
 
@@ -145,9 +130,7 @@ useEffect(() => {
 
 }, [user]
 
-
 )
-
 
 async function fetchMovies() {
 
@@ -160,17 +143,13 @@ async function fetchMovies() {
   let response = await fetch(stringToFetch);
 
   let data = await response.json();
-
-  if(data.Search == null || data.Search == undefined || data.Search == []) {
+  
+  if(!data.Search) {
     setIsError(true)
   }
-  
+ 
   let moviesArray = data.Search;
-
   
-    
-  
-
   console.log(moviesArray);
   setIsLoading(false);
   setAllResults(moviesArray);
@@ -191,8 +170,6 @@ async function fetchSpecificDetails(){
   let data2 = await response2.json()
 
   console.log(data2);
-
- 
 
   setFullDetails(data2);
   
@@ -227,7 +204,6 @@ async function addToFavorites(movieToFavorite) {
       });
     }
 
-
   setUserFavorites(prev => [...prev, favoriteMovieToFav]);
   
 }
@@ -251,8 +227,6 @@ function clearSearch() {
   setAllResults()
 }
 
-
-
 if (isLoading) {
   return(
   <Loading />
@@ -261,57 +235,45 @@ if (isLoading) {
 
   return (
     <div className="app-container">
-      
-      
+            
       <Navbar signedInOrNot={user} setMethod={setUser}/>
 
       <Routes>
 
         <Route path='/' element={<HomePage trendingMovies={trendingMovies}/>}/>
 
-
-
         <Route path='/search' element={
           <>
           
-          <SearchMovies query={setUserQuery} clearMethod={clearSearch}/>
+            <SearchMovies query={setUserQuery} clearMethod={clearSearch}/>
           
           {
           allResults && (
             <RenderMovies moviesToRender={allResults} favoriteMethod={addToFavorites} detailMovie={setDetailedView}/>
           )
+
           }
 
           { isError && (
-          <Error clearFunction={clearSearch} errorOrNot={isError}/>
+            <Error clearFunction={clearSearch} errorOrNot={isError}/>
           )
 
           }
           </>
-        
-      
+
       } 
-        
-        
         
         >
           <Route path='/search/*' element={<DetailedView movieToDisplay={detailedView} fullDetails={fullDetails}/>}/>
         </Route>
-
-        
-        
-
         <Route path='/favorites' element={<Favorites favoritesList={userFavorites} detailMethod={setDetailedView} removeMethod={removeFromFavorites} updateMethod={setUserFavorites} isSignedIn={user}/>}>
           <Route path='/favorites/*' element={<DetailedView movieToDisplay={detailedView} fullDetails={fullDetails}/>} />
         </Route>
 
       </Routes>
     
-
     </div>
 
-    
-  
   )
 }
 

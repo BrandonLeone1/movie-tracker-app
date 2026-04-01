@@ -1,7 +1,6 @@
 export function SearchMovies({query, clearMethod}) {
     return(
        
-
             <div className="grid md:grid-cols-2 gap-10 justify-center place-items-center my-40 px-16 lg:max-w-230 lg:mx-auto">
                 <input 
                 
@@ -19,6 +18,6 @@ export function SearchMovies({query, clearMethod}) {
 
                 <button onClick={() => clearMethod()} className="text-md bg-red-600 px-6 text-white font-bold rounded cursor-pointer min-w-37.5 h-13.75 hover:bg-red-700 transition-all duration-300 my-auto">Clear Search</button>
             </div>
-  
+            
     );
 }

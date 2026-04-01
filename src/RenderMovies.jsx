@@ -1,6 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
 
-
 export function RenderMovies({moviesToRender, favoriteMethod, detailMovie}){
     
     if(moviesToRender.length < 1) {return}
@@ -22,18 +21,22 @@ export function RenderMovies({moviesToRender, favoriteMethod, detailMovie}){
                         <h2 className="text-white font-mono text-md md:text-lg truncate lg:text-lg">{movie.Title}</h2>
                         <p className="text-white font-mono">{movie.Year}</p>
                         <Link to={`/search/movie/${movie.imdbID}`}>
-                        <img src={movie.Poster} onClick={() => detailMovie(movie)} className="h-80 w-[90%] object-cover rounded-2xl block m-auto"/>
-                        </Link>
+                        <img src={movie.Poster} 
+                        
+                            onClick={() => detailMovie(movie)} 
+                            className="h-80 w-[90%] object-cover rounded-2xl block m-auto"/>
+                        
+                            </Link>
                         <button onClick={() => handleClick(movie)} className="text-md min-h-8 bg-red-600 px-4 place-self-center text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300 active:scale-95">Add to favorites</button>
                     </div>
                     
                 )
             
-            
-            
             )
 
             }
+
+            {/*Detailed view of movie search */}
             <Outlet></Outlet>
 
         </div>

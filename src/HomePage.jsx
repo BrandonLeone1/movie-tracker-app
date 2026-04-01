@@ -24,7 +24,6 @@ export function HomePage({trendingMovies}){
      
         <div>
 
-
             <div className="hero-section-container h-screen px-8 text-center flex flex-col place-items-center justify-center gap-16  bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.05),transparent_40%),linear-gradient(to_bottom,#0f0f0f,#000)] text-white">
                 <h1 className="text-xl font-bold text-center sm:text-xl md:text-2xl lg:text-3xl font-[montserrat]">Search major movies, add to favorites, and sort by watched or not!</h1>
                 <p className="text-base sm:text-lg md:text-xl lg:text-xl">Don't end up forgetting to watch that movie you said you would.</p>
@@ -35,7 +34,6 @@ export function HomePage({trendingMovies}){
                 </Link>
             </div>
 
-
             <div className="flex w-300 max-w-[90%] m-auto text-xl sm:text-xl md:text-2xl lg:text-3xl font-bold">
                 <h2 className="text-white">Trending Movies</h2>
             </div>
@@ -43,7 +41,7 @@ export function HomePage({trendingMovies}){
                 <button className="text-red-600 text-3xl cursor-pointer" onClick={scrollLeft}>{`<`}</button>
                 <button className="text-red-600 text-3xl cursor-pointer" onClick={scrollRight}>{`>`}</button>
             </div>
-            <div ref={carousel} className="trending-movies-container w-300 max-w-[90%] mx-auto my-10 flex overflow-x-scroll scroll-smooth space-x-4 p-4">
+            <div ref={carousel} className="trending-movies-container w-300 max-w-[90%] mx-auto my-10 flex overflow-x-scroll md:overflow-x-hidden scroll-smooth space-x-4 p-4">
                 
                 {
                     trendingMovies.map((movie) => (
@@ -55,7 +53,6 @@ export function HomePage({trendingMovies}){
                         </div>
                     )
                 
-                
                 )
                 }
             </div>
@@ -63,13 +60,11 @@ export function HomePage({trendingMovies}){
             {selectedTrending && (
 
                 <div onClick={() => setSelectedTrending(null)} className={`fixed inset-0 z-50 p-4 flex items-center justify-center bg-black/50`}>
-                    <div className={`grid grid-cols-1 place-items-center px-8 py-16 bg-slate-800 w-full max-w-md md:max-w-lg lg:max-w-xl rounded-2xl relative overflow-y-auto shadow-2xl max-h-[90vh] animate-[fadeIn_0.3s_ease-out]`} onClick={(e) => e.stopPropagation()}>
+                    <div className={`grid grid-cols-1 place-items-center px-8 py-16 bg-slate-800 w-full max-w-md md:max-w-lg lg:max-w-xl rounded-2xl relative overflow-y-auto gap-3 shadow-2xl max-h-[90vh] animate-[fadeIn_0.3s_ease-out]`} onClick={(e) => e.stopPropagation()}>
+                        
                         <h2 className="text-white">{selectedTrending.title}</h2>
                         <p className="text-white">{selectedTrending.number}</p>
                         <p className="text-white">Donec eu nulla rutrum, condimentum leo in, cursus erat. Duis id mi quis arcu elementum eleifend. Duis pulvinar lacinia augue, non dictum enim.</p>
-                
-
-                
                         <button onClick={() => setSelectedTrending(null)} className="text-sm w-20 min-h-8 bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300">Close</button>
                 
                     </div>
@@ -80,8 +75,6 @@ export function HomePage({trendingMovies}){
 
             <h2>More benefits</h2>
             <div className="reasons-to-join-container grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 my-20 gap-12 w-300 max-w-[90%] m-auto">
-
-                
 
                 <div className="reason flex flex-col gap-8 px-8 bg-linear-to-b from-gray-900 via-[#141422] rounded-2xl py-8 min-w-72.5 text-white">
                     <h3 className="text-lg sm:text-lg md:text-lg lg:text-xl font-bold">Multiple device access</h3>
@@ -96,49 +89,22 @@ export function HomePage({trendingMovies}){
                 </div>
 
                 <div className="reason flex flex-col gap-8 px-8 bg-linear-to-b from-gray-900 via-[#141422] rounded-2xl py-8 min-w-72.5 text-white">
+                    
                     <h3 className="text-lg sm:text-lg md:text-lg lg:text-xl font-bold">Multiple profiles</h3>
                     <p>Add multiple user profiles so that your content does not get mixed up!</p>
-    
                     <i className="fa-solid fa-circle-user mt-auto ml-auto sm:text-xl text-xl md:text-2xl lg:text-4xl"></i>
                   
                 </div>
 
                 <div className="reason flex flex-col gap-8 px-8 bg-linear-to-b from-gray-900 via-[#141422] rounded-2xl py-8 min-w-72.5 text-white">
+                    
                     <h3 className="text-lg sm:text-lg md:text-lg lg:text-xl font-bold">Ad free</h3>
                     <p>None of our plans have ads to disrupt your content, allowing hassle free viewing. Paying for a plan means no advertisments and we will always keep this viewpoint.</p>
                     <i className="fa-solid fa-binoculars mt-auto ml-auto sm:text-xl text-xl md:text-2xl lg:text-4xl"></i>
+                
                 </div>
             </div>
 
-            <div className="faq-container">
-
-                <h2>Frequently Asked Questions</h2>
-
-                <div className="question">
-
-                </div>
-
-                <div className="question">
-
-                </div>
-
-                <div className="question">
-
-                </div>
-
-                <div className="question">
-
-                </div>
-
-                <div className="question">
-
-                </div>
-
-                <div className="question">
-
-                </div>
-
-            </div>
         </div>
       
     );

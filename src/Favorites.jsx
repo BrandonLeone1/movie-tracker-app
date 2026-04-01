@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Outlet, useSearchParams } from "react-router";
+import { Outlet } from "react-router";
 import { Link } from "react-router";
-
+import {doc, updateDoc} from "firebase/firestore"
+import { db } from "./Firebase";
 
 export function Favorites({favoritesList, detailMethod, removeMethod, updateMethod, isSignedIn}) {
 
@@ -21,9 +22,6 @@ export function Favorites({favoritesList, detailMethod, removeMethod, updateMeth
         );
     }
 
-
-
-
 const [draggedID, setDraggedID] = useState(null);
 
 
@@ -31,18 +29,25 @@ const [draggedID, setDraggedID] = useState(null);
         removeMethod(favoriteToRemove);
     }
 
-    function handleDrop(status) {
-        updateMethod(favoritesList.map((favorite) => {
-            if (favorite.imdbID == draggedID) {
-                return {...favorite, status: status}
-            } else {
-                return favorite
-            }
-
+async function handleDrop(status) {
+    if (isSignedIn == null) {return}    
+    
+    const updatedFavorites = favoritesList.map(favorite => 
+       { if (favorite.imdbID === draggedID) {
+            return {...favorite, status}
+        } else {return favorite}
+        }
+    )
+        updateMethod(updatedFavorites)
+        
+        const userRef = doc(db, "users", isSignedIn.uid);
+        
+        try {
+            await updateDoc(userRef, {favorites: updatedFavorites});
+        } catch (error) {
+            console.log("failed to update favorites:", error);
         }
         
-        
-        ))
     }
 
     return(
@@ -105,15 +110,12 @@ const [draggedID, setDraggedID] = useState(null);
                         ))
                     }
 
-
-
                 </div>
             </div>
-
             
       </>
 
-
+        {/* Detailed view of favorite */}
         <Outlet></Outlet>
        
         </div>
