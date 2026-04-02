@@ -17,7 +17,7 @@ export function Navbar({signedInOrNot, setMethod}) {
                 
                 <div className="">
                     <Link to="/">
-                    <h2 className="text-lg uppercase md:text-2xl lg:text-2xl text-white font-semibold font-mono" onClick={() => setIsOpen(false)}>Movie Tracker</h2>
+                    <h2 className="text-lg uppercase md:text-2xl lg:text-2xl text-white font-semibold font-mono animate-[slideInLeft_1s_ease-out]" onClick={() => setIsOpen(false)}>Movie Tracker</h2>
                     </Link>
                 </div>
 
@@ -28,16 +28,16 @@ export function Navbar({signedInOrNot, setMethod}) {
                 <div className="gap-16 hidden lg:flex">
                     
                         <Link to="/search">
-                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300">Search</button>
+                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out]">Search</button>
                         </Link>
 
                         <Link to="/favorites">
-                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300">Favorites</button>
+                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out]">Favorites</button>
                         </Link>
 
                         { signedInOrNot ? (
                             <div>
-                                <button onClick={() => signOut(auth)} className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300">Sign Out</button>
+                                <button onClick={() => signOut(auth)} className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out]">Sign Out</button>
                             </div>
                         ) :
                         <Signup userToSet={setMethod}/>
