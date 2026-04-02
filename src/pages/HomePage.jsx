@@ -1,11 +1,16 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router";
+import { easeInOut, motion } from "framer-motion";
 
 export function HomePage({trendingMovies}){
 
     const [selectedTrending, setSelectedTrending] = useState(null);
 
     const carousel = useRef(null);
+
+    const [question1, setQuestion1] = useState(false);
+    const [question2, setQuestion2] = useState(false);
+    const [question3, setQuestion3] = useState(false);
 
     function scrollLeft () {
         if (carousel.current) {
@@ -25,13 +30,13 @@ export function HomePage({trendingMovies}){
 
             <div className="hero-section-container h-screen px-8 text-center flex flex-col gap-16 justify-center bg-zinc-800 text-white items-center">
                 
-                <h1 className="text-2xl font-bold text-center md:text-3xl lg:text-4xl font-[montserrat] -mt-10 animate-[slideInRight_1s_ease-out]">Movie Tracking App</h1>
-                <img src="videocam.png" className="w-15 block md:w-25 animate-[slideInLeft_1s_ease-out]"/>
-                <p className="text-lg md:text-xl lg:text-2xl font-[montserrat] font-semibold animate-[slideInRight_1s_ease-out]">Don't end up forgetting to watch that movie you said you would.</p>
-                <p className="text-lg md:text-xl lg:text-2xl font-[montserrat] font-semibold animate-[slideInLeft_1s_ease-out]">Ready to get started?</p>
+                <h1 className="text-2xl font-bold text-center md:text-3xl lg:text-4xl font-[montserrat] -mt-25 animate-[slideInRight_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Movie Tracking App</h1>
+                <img src="videocam.png" className="w-15 block md:w-25 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0"/>
+                <p className="text-lg md:text-xl lg:text-2xl font-[montserrat] font-semibold animate-[slideInRight_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Don't end up forgetting to watch that movie you said you would.</p>
+                <p className="text-lg md:text-xl lg:text-2xl font-[montserrat] font-semibold animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Ready to get started?</p>
 
                 <Link to="/search">
-                <button className="text-lg md:text-2xl lg:text-3xl bg-teal-700 shadow-2xl px-6 py-2 rounded-3xl cursor-pointer hover:scale-105 hover:bg-teal-800 active:scale-100 duration-300 after:content-['>'] after:ml-2 font-[montserrat] after:font-[montserrat] after:font-semibold font-semibold [animation-delay:1s] animate-[popUp2_0.8s_ease-out_forwards] opacity-0">Search Now!</button>
+                <button className="text-lg md:text-2xl lg:text-3xl bg-teal-700 shadow-2xl px-6 py-2 rounded-3xl cursor-pointer hover:scale-105 hover:bg-teal-800 active:scale-100 duration-300 after:content-['>'] after:ml-2 font-[montserrat] after:font-[montserrat] after:font-semibold font-semibold [animation-delay:1.5s] animate-[popUp2_0.8s_ease-out_forwards] opacity-0">Search Now!</button>
                 </Link>
             
             </div>
@@ -113,6 +118,74 @@ export function HomePage({trendingMovies}){
                 
                 </div>
             </div>
+
+            <motion.div
+            className="w-300 mb-10 max-w-[90%] mx-auto flex flex-col mt-15 text-white font-[montserrat]"
+            initial={{opacity: 0, y: 25}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true, amount: 0.2}}
+            transition={{duration: 2}}
+            >
+                
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">Frequently Asked Questions</h2>
+                
+                <div className="faq-container flex flex-col gap-4">
+                    
+                    <div className="bg-zinc-700 p-6 mt-15 cursor-pointer relative rounded-t-2xl" onClick={() => setQuestion1(prev => !prev)}>
+                        <h3 className="text-lg max-w-[50%] font-semibold after:content-['↓'] after:absolute after:top-[50%] after:translate-y-[-50%] after:right-5 after:text-5xl">How Do I Get Started Using This App?</h3>
+                    </div>
+
+                    {
+                        question1 && (
+                            <motion.div className="text-white p-6 bg-zinc-400 -mt-5 rounded-b-2xl"
+                            initial={{opacity: 0, y: -20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true, amount: 0.2}}
+                            transition={{duration: 0.3, ease: easeInOut}}
+                            >
+                                <p className="text-lg text-zinc-950">To get started head over to the <Link to="/search" target="_blank" className="text-teal-700 underline">search page.</Link> From there you can view specific movie details upon search or add them to your favorites.</p>
+                            </motion.div>
+                        )
+                    }
+
+                    <div className="bg-zinc-700 p-6 cursor-pointer relative rounded-t-2xl" onClick={() => setQuestion2(prev => !prev)}>
+                        <h3 className="text-lg max-w-[50%] font-semibold after:content-['↓'] after:absolute after:top-[50%] after:translate-y-[-50%] after:right-5 after:text-5xl">Can I Organize My Favorites?</h3>
+                    </div>
+
+                    {
+                    question2 && (
+                        <motion.div className="text-white p-6 bg-zinc-400 -mt-5 rounded-b-2xl"
+                            initial={{opacity: 0, y: -20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true, amount: 0.2}}
+                            transition={{duration: 0.3, ease: easeInOut}}
+                            >
+                                <p className="text-lg text-zinc-950">Yes, drag and drop for organizing want to watch/watched movies is supported on PC. Due to the nature of the implementation, it is not supported on mobile, however your changes made on desktop will save!</p>
+                            </motion.div>
+                    )   
+                    }
+
+                    <div className="bg-zinc-700 p-6 cursor-pointer relative rounded-t-2xl" onClick={() => setQuestion3(prev => !prev)}>
+                        <h3 className="text-lg max-w-[50%] font-semibold after:content-['↓'] after:absolute after:top-[50%] after:translate-y-[-50%] after:right-5 after:text-5xl">How Is My Sign In Being Handled?</h3>
+                    </div>
+
+                    { 
+                    question3 && (
+                        <motion.div className="text-white p-6 bg-zinc-400 -mt-5 rounded-b-2xl"
+                            initial={{opacity: 0, y: -20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true, amount: 0.2}}
+                            transition={{duration: 0.3, ease: easeInOut}}
+                            >
+                                <p className="text-lg text-zinc-950">Secure and private sign-in is implemented through Firebase and Google OAuth. Favorites are also securely saved to Firestore database.</p>
+                            </motion.div>
+                    )
+
+                    }
+                
+                </div>
+            </motion.div>
+
 
         </div>
       

@@ -17,27 +17,27 @@ export function Navbar({signedInOrNot, setMethod}) {
                 
                 <div className="">
                     <Link to="/">
-                    <h2 className="text-lg uppercase md:text-2xl lg:text-2xl text-white font-semibold font-mono animate-[slideInLeft_1s_ease-out]" onClick={() => setIsOpen(false)}>Movie Tracker</h2>
+                    <h2 className="text-lg uppercase md:text-2xl lg:text-2xl text-white font-semibold font-mono animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0" onClick={() => setIsOpen(false)}>Movie Tracker</h2>
                     </Link>
                 </div>
 
-                <div>
-                    <p className="text-white lg:hidden text-3xl cursor-pointer" onClick={() => setIsOpen(prev => !prev)}>≡</p>
+                <div className="w-5 h-5 relative flex items-center justify-center cursor-pointer" onClick={() => setIsOpen(prev => !prev)}>
+                    <p className={`text-white lg:hidden text-3xl md:text-4xl cursor-pointer w-5 h-0.75 bg-white after:content-[''] after:block after:w-5 after:h-0.75 after:bg-white relative after:absolute after:top-3 -mt-2  ${isOpen && "after:-rotate-45 after:top-0! rotate-20 top-1 duration-300"} duration-500`}></p>
                 </div>
                
                 <div className="gap-16 hidden lg:flex">
                     
                         <Link to="/search">
-                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out]">Search</button>
+                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Search</button>
                         </Link>
 
                         <Link to="/favorites">
-                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out]">Favorites</button>
+                        <button className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Favorites</button>
                         </Link>
 
                         { signedInOrNot ? (
                             <div>
-                                <button onClick={() => signOut(auth)} className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out]">Sign Out</button>
+                                <button onClick={() => signOut(auth)} className="text-md min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Sign Out</button>
                             </div>
                         ) :
                         <Signup userToSet={setMethod}/>
@@ -50,16 +50,16 @@ export function Navbar({signedInOrNot, setMethod}) {
                 <div className="flex flex-col lg:hidden gap-6 w-300 m-auto max-w-[95%] px-8 md:px-10 animate-[fadeIn_0.3s_ease-out] pb-6 bg-zinc-800 pt-6">
                         
                         <Link to="/search">
-                        <button className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300" onClick={() => setIsOpen(false)}>Search</button>
+                        <button className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_0.5s_ease-out_forwards] [animation-delay:0.3s] opacity-0" onClick={() => setIsOpen(false)}>Search</button>
                         </Link>
 
                         <Link to="/favorites">
-                        <button className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300" onClick={() => setIsOpen(false)}>Favorites</button>
+                        <button className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_0.5s_ease-out_forwards] [animation-delay:0.3s] opacity-0" onClick={() => setIsOpen(false)}>Favorites</button>
                         </Link>
 
                         { signedInOrNot ? (
                             <div>
-                                <button onClick={() => signOut(auth)} className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300">Sign Out</button>
+                                <button onClick={() => signOut(auth)} className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Sign Out</button>
                             </div>
                         ) :
                         <div className="lg:hidden">

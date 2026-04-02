@@ -20,7 +20,7 @@ export function Signup({userToSet}) {
     return (
         
         <div>
-            <button onClick={handleSignIn} className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 md:animate-[slideInLeft_1s_ease-out]">Sign in with Google</button>  
+            <button onClick={handleSignIn} className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Sign in</button>  
         </div>
     
     );
