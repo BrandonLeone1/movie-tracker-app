@@ -28,7 +28,7 @@ export function HomePage({trendingMovies}){
      
         <div>
 
-            <div className="hero-section-container h-screen px-8 text-center flex flex-col gap-16 justify-center bg-zinc-800 text-white items-center">
+            <div className="hero-section-container h-screen px-8 text-center flex flex-col gap-16 justify-center bg-zinc-800 text-white items-center overflow-x-hidden relative">
                 
                 <h1 className="text-2xl font-bold text-center md:text-3xl lg:text-4xl font-[montserrat] -mt-25 animate-[slideInRight_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Movie Tracking App</h1>
                 <img src="videocam.png" className="w-15 block md:w-25 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0"/>
