@@ -11,7 +11,7 @@ export function Navbar({signedInOrNot, setMethod}) {
 
     return (
         <>
-        <header className="md:pb-0 bg-zinc-800/85 shadow sticky top-0 z-50">
+        <header className="md:pb-0 bg-zinc-800/85 shadow sticky top-0 z-1000">
 
             <nav className="flex backdrop-blur-sm items-center justify-between px-8 md:px-10 py-6 w-400 max-w-[95%] m-auto font-[montserrat]">
                 
