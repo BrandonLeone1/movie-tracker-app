@@ -24,10 +24,10 @@ export function RenderMovies({moviesToRender, favoriteMethod, detailMovie}){
                         <img src={movie.Poster} 
                         
                             onClick={() => detailMovie(movie)} 
-                            className="h-80 w-[90%] object-cover rounded-2xl block m-auto"/>
+                            className="h-80 w-[50%] md:w-[70%] rounded-2xl block m-auto"/>
                         
                             </Link>
-                        <button onClick={() => handleClick(movie)} className="text-md min-h-8 bg-red-600 px-4 place-self-center text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300 active:scale-95">Add to favorites</button>
+                        <button onClick={() => handleClick(movie)} className="text-md min-h-8 bg-zinc-400 mt-2 px-4 place-self-center text-white py-1 font-bold rounded cursor-pointer hover:bg-zinc-600 transition-all duration-300 active:scale-95">Add to favorites</button>
                     </div>
                     
                 )

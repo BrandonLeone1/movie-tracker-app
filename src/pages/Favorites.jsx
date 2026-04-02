@@ -62,7 +62,7 @@ async function handleDrop(status) {
                 onDrop={() => handleDrop("want")}
                 className="grid grid-cols-1 gap-8 place-content-start">
 
-                    <h3 className="text-white text-center text-xl sm:text-xl md:text-xl lg:text-xl font-[montserrat] font-semibold mb-12">Want to watch</h3>
+                    <h3 className="text-white text-center text-xl sm:text-xl md:text-xl lg:text-xl font-[montserrat] font-semibold mb-12">Want to</h3>
 
                     {
                         favoritesList.filter(favorite => favorite.status === "want")
@@ -70,10 +70,10 @@ async function handleDrop(status) {
                             <div key={favorite.imdbID} draggable onDragStart={() => setDraggedID(favorite.imdbID)} className="flex flex-col gap-3 min-w-0">
                                 <h2 className="text-white text-center text-xl truncate">{favorite.Title}</h2>
                                 <Link to={`/favorites/movie/${favorite.imdbID}`}>
-                                <img src={favorite.Poster} onClick={() => detailMethod(favorite)} className="h-80 w-[90%] object-cover rounded-2xl block m-auto"/>
+                                <img src={favorite.Poster} onClick={() => detailMethod(favorite)} className="h-80 w-full md:w-[60%] object-cover md:object-contain rounded-2xl block m-auto"/>
                                 </Link>
 
-                                <button onClick={() => handleClick(favorite)} className="text-md min-h-8 bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300 block mx-auto">Remove</button>
+                                <button onClick={() => handleClick(favorite)} className="text-md min-h-8 bg-zinc-500 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-zinc-600 transition-all duration-300 block mx-auto">Remove</button>
                             </div>
                         )
                     ) 
@@ -98,10 +98,10 @@ async function handleDrop(status) {
                             <div key={favoriteM.imdbID} draggable onDragStart={() => setDraggedID(favoriteM.imdbID)} className="flex flex-col gap-3 min-w-0">
                                 <h2 className="text-white text-center text-xl truncate">{favoriteM.Title}</h2>
                                 <Link to={`/favorites/movie/${favoriteM.imdbID}`}>
-                                <img src={favoriteM.Poster} onClick={() => detailMethod(favoriteM)} className="h-80 w-[90%] object-cover rounded-2xl block m-auto"/>
+                                <img src={favoriteM.Poster} onClick={() => detailMethod(favoriteM)} className="h-80 w-full md:w-[60%] object-cover md:object-contain rounded-2xl block m-auto"/>
                                 </Link>
 
-                                <button onClick={() => handleClick(favoriteM)} className="text-md min-h-8 bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300 block mx-auto">Remove</button>
+                                <button onClick={() => handleClick(favoriteM)} className="text-md min-h-8 bg-zinc-500 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-zinc-600 transition-all duration-300 block mx-auto">Remove</button>
                             </div>
                         ))
                     }

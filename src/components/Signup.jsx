@@ -20,7 +20,7 @@ export function Signup({userToSet}) {
     return (
         
         <div>
-            <button onClick={handleSignIn} className="text-sm min-h-8 bg-red-600 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-red-700 transition-all duration-300">Sign in with Google</button>  
+            <button onClick={handleSignIn} className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300">Sign in with Google</button>  
         </div>
     
     );
