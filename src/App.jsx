@@ -234,7 +234,7 @@ if (isLoading) {
 }
 
   return (
-    <div className="app-container">
+    <div className="app-container overflow-x-hidden">
             
       <Navbar signedInOrNot={user} setMethod={setUser}/>
 
