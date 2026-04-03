@@ -13,7 +13,7 @@ export function SearchMovies({query, clearMethod}) {
                     }
                 }
                 }
-                className="border text-sm truncate border-zinc-400 px-18 py-6 w-full max-w-125 block m-auto rounded-xl text-white placeholder:text-white font-semibold font-mono h-15"
+                className="border text-[17px] truncate border-zinc-400 placeholder:text-center p-2 w-full block m-auto rounded-xl text-white placeholder:text-white font-semibold font-mono"
                 />
 
                 <button onClick={() => clearMethod()} className="text-md bg-teal-700 px-6 text-white font-bold rounded cursor-pointer min-w-37.5 h-13.75 hover:bg-teal-800 active:scale-95 font-mono transition-all duration-300 my-auto">Clear Search</button>
