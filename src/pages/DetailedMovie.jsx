@@ -17,7 +17,7 @@ export function DetailedView({movieToDisplay, fullDetails}) {
                 <p className="text-white">{fullDetails.Runtime}</p>
                 <p className="text-white">{fullDetails.Actors}</p>
                 <p className="text-white">{fullDetails.Plot}</p>
-                <button onClick={() => navigate(-1)} className="text-sm w-20 min-h-8 bg-teal-700 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-teal-800 transition-all duration-300">Close</button>
+                <button onClick={() => navigate(-1)} className="text-sm w-20 min-h-8 bg-teal-700 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-teal-800 transition-all duration-300" aria-label="Close detailed view pop-up.">Close</button>
                 
             </div>
         </div>

@@ -70,10 +70,10 @@ async function handleDrop(status) {
                             <div key={favorite.imdbID} draggable onDragStart={() => setDraggedID(favorite.imdbID)} className="flex flex-col gap-3 min-w-0">
                                 <h2 className="text-white text-center text-xl truncate">{favorite.Title}</h2>
                                 <Link to={`/favorites/movie/${favorite.imdbID}`}>
-                                <img src={favorite.Poster} onClick={() => detailMethod(favorite)} className="h-80 w-full md:w-[60%] object-cover md:object-contain rounded-2xl block m-auto"/>
+                                <img src={favorite.Poster} onClick={() => detailMethod(favorite)} className="h-80 w-full md:w-[60%] object-cover md:object-contain rounded-2xl block m-auto" alt="Poster of movie."/>
                                 </Link>
 
-                                <button onClick={() => handleClick(favorite)} className="text-md min-h-8 bg-zinc-500 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-zinc-600 transition-all duration-300 block mx-auto">Remove</button>
+                                <button onClick={() => handleClick(favorite)} className="text-md min-h-8 bg-zinc-500 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-zinc-600 transition-all duration-300 block mx-auto" aria-label="Remove movie from favorites list.">Remove</button>
                             </div>
                         )
                     ) 
@@ -101,7 +101,7 @@ async function handleDrop(status) {
                                 <img src={favoriteM.Poster} onClick={() => detailMethod(favoriteM)} className="h-80 w-full md:w-[60%] object-cover md:object-contain rounded-2xl block m-auto"/>
                                 </Link>
 
-                                <button onClick={() => handleClick(favoriteM)} className="text-md min-h-8 bg-zinc-500 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-zinc-600 transition-all duration-300 block mx-auto">Remove</button>
+                                <button onClick={() => handleClick(favoriteM)} className="text-md min-h-8 bg-zinc-500 px-4 text-white py-1 font-bold rounded cursor-pointer hover:bg-zinc-600 transition-all duration-300 block mx-auto" aria-label="Remove movie from favorites list.">Remove</button>
                             </div>
                         ))
                     }

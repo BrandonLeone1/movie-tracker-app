@@ -13,10 +13,10 @@ export function SearchMovies({query, clearMethod}) {
                     }
                 }
                 }
-                className="border text-[17px] truncate border-zinc-400 placeholder:text-center p-2 w-full block m-auto rounded-xl text-white placeholder:text-white font-semibold font-mono"
+                className="border text-[17px] truncate border-zinc-400 placeholder:text-center p-2 w-full block m-auto rounded-xl text-white placeholder:text-white font-semibold font-mono" aria-label="Search input."
                 />
 
-                <button onClick={() => clearMethod()} className="text-md bg-teal-700 px-6 text-white font-bold rounded cursor-pointer min-w-37.5 h-13.75 hover:bg-teal-800 active:scale-95 font-mono transition-all duration-300 my-auto">Clear Search</button>
+                <button onClick={() => clearMethod()} aria-label='Clear the results after a search.' className="text-md bg-teal-700 px-6 text-white font-bold rounded cursor-pointer min-w-37.5 h-13.75 hover:bg-teal-800 active:scale-95 font-mono transition-all duration-300 my-auto">Clear Search</button>
             </div>
             
     );
