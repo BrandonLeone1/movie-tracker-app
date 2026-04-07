@@ -49,7 +49,7 @@ export function HomePage({trendingMovies}){
 
             <div className="hero-section-container h-screen px-8 text-center flex flex-col gap-16 justify-center bg-zinc-800 text-white items-center overflow-x-hidden overflow-y-hidden relative">
                 
-                <motion.div className="-mt-25 overflow-x-hidden"
+                <motion.div className="-mt-25 overflow-x-hidden overflow-y-hidden"
                 initial={{opacity: 0, x: -200}}
                 animate={{opacity: 1, x: 0}}
                 transition={{duration: 1}}
@@ -259,14 +259,14 @@ export function HomePage({trendingMovies}){
 
                 
                 <footer className="px-8 md:px-10 py-6 m-auto font-[montserrat] border-t-2 border-zinc-700 mt-15 w-full flex flex-wrap justify-between">
-                    <div className="w-400 max-w-[95%] mx-auto flex justify-between items-center flex-row gap-6">
+                    <div className="w-400 max-w-[95%] mx-auto grid grid-cols-2 place-items-start gap-6">
                         
-                        <div className="flex flex-col gap-4">  
+                        <div className="flex flex-col gap-6">  
                             <p className="text-white text-md">UI/sections lightly inspired by Netflix.</p>
                             <p className="text-white text-md">Designed with Tailwind CSS, Framer-Motion, and SplideJS.</p>
                         </div>
 
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-6">
                             <p className="text-white text-md">Uses OMDB API to search movies.</p>
                             <p className="text-white text-md">User authentication and favorites are handled using Firebase/Firestore.</p>
                         </div>
