@@ -259,7 +259,7 @@ export function HomePage({trendingMovies}){
 
                 
                 <footer className="px-8 md:px-10 py-6 m-auto font-[montserrat] border-t-2 border-zinc-700 mt-15 w-full flex flex-wrap justify-between">
-                    <div className="w-400 max-w-[95%] mx-auto grid grid-cols-2 place-items-start gap-6">
+                    <div className="w-400 max-w-[95%] mx-auto grid grid-cols-2 place-items-center gap-6 px-8 md:px-10 py-6">
                         
                         <div className="flex flex-col gap-6">  
                             <p className="text-white text-md">UI/sections lightly inspired by Netflix.</p>
