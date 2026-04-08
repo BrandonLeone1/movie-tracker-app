@@ -78,7 +78,6 @@ async function handleDrop(status) {
                         )
                     ) 
                         
-                        
                     }
 
                 </div>

@@ -1,4 +1,4 @@
-export function Error({clearFunction, errorOrNot}) {
+export function Error() {
     
     return (
 

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export function DetailedView({movieToDisplay, fullDetails}) {
+export function DetailedView({fullDetails}) {
     
     const navigate = useNavigate();
    

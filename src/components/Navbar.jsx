@@ -9,7 +9,6 @@ export function Navbar({signedInOrNot, setMethod}) {
 
     const [isOpen, setIsOpen] = useState(false);
 
-
     return (
         <>
         <header className="md:pb-0 bg-zinc-800/85 shadow sticky top-0 z-49">
@@ -54,7 +53,7 @@ export function Navbar({signedInOrNot, setMethod}) {
                 animate={{opacity: 1, height: 'auto'}}
                 exit={{opacity: 0, height: 0}}
                 transition={{duration: 0.8}}
-                className="flex flex-col lg:hidden gap-6 w-300 m-auto max-w-[95%] px-8 md:px-10 animate-[fadeIn_0.3s_ease-out] pb-6 bg-zinc-800 pt-6">
+                className="flex flex-col lg:hidden gap-6 w-300 m-auto max-w-[95%] px-8 md:px-10 animate-[fadeIn_0.3s_ease-out] bg-zinc-800">
                         
                         <Link to="/search" aria-label="Search page.">
                         <button className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_0.5s_ease-out_forwards] [animation-delay:0.3s] opacity-0" onClick={() => setIsOpen(false)}>Search</button>
@@ -66,7 +65,7 @@ export function Navbar({signedInOrNot, setMethod}) {
 
                         { signedInOrNot ? (
                             <div>
-                                <button aria-label="Sign out." onClick={() => signOut(auth)} className="text-sm md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Sign Out</button>
+                                <button aria-label="Sign out." onClick={() => signOut(auth)} className="text-sm  pb-4 md:text-lg min-h-8 font-mono text-white font-bold uppercase cursor-pointer hover:scale-105 active:scale-100 duration-300 animate-[slideInLeft_1s_ease-out_forwards] [animation-delay:0.3s] opacity-0">Sign Out</button>
                             </div>
                         ) :
                         <div className="lg:hidden">

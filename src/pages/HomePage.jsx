@@ -212,8 +212,7 @@ export function HomePage({trendingMovies}){
             >
                 
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">"Frequently Asked Questions"</h2>
-             </motion.div>
-
+            </motion.div>
 
                 <div className="faq-container flex flex-col gap-4 w-300 max-w-[90%] mx-auto font-[montserrat]">
                     
@@ -234,21 +233,18 @@ export function HomePage({trendingMovies}){
                     <AnimatePresence>
                         {selectedFAQ === faq.id && (
                             <motion.div 
-                            className="text-zinc-800 p-6 bg-zinc-200 rounded-b-2xl text-md md:text-lg"
+                            className="text-zinc-800 bg-zinc-200 rounded-b-2xl text-md md:text-lg"
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{duration: 0.8}}
                             >
-                            {faq.answer}
+                            <p className="px-6 py-6">{faq.answer}</p>
                             </motion.div>
                         )
 
                         }
                     </AnimatePresence>
-
-                    
-                   
                    
                       </div>
                    
@@ -257,7 +253,6 @@ export function HomePage({trendingMovies}){
                     
                 </div>
 
-                
                 <footer className="px-8 md:px-10 py-6 m-auto font-[montserrat] border-t-2 border-zinc-700 mt-15 w-full flex flex-wrap justify-between">
                     <div className="w-400 max-w-[95%] mx-auto grid grid-cols-2 place-items-center gap-6 px-8 md:px-10 py-6">
                         
@@ -274,8 +269,6 @@ export function HomePage({trendingMovies}){
                     </div>
                 </footer>
             
-   
-
         </div>
       
     );
